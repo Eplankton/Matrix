@@ -26,7 +26,7 @@ int main()
         printf("                                     Det(A)        :5  \n");
         printf("                                     Exit          :0  \n");
         printf("                                                       \n");
-        printf("                          ############################\n");
+        printf("                          #############################\n");
         printf("                           Please enter : ");
         scanf("%d", &key);
 
@@ -111,7 +111,7 @@ void matrixInput(int *r)
 
 void matrixAddition()
 {
-    printf("Mode:1 -> Addition \n\n");
+    printf("\nMode:1 -> Addition \n\n");
     printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
     if (row < 1)
@@ -175,7 +175,7 @@ void matrixAddition()
 
 void matrixSubtraction()
 {
-    printf("Mode:2 -> Subtraction \n\n");
+    printf("\nMode:2 -> Subtraction \n\n");
     printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
     if (row < 1)
@@ -239,7 +239,7 @@ void matrixSubtraction()
 
 void scalarMultiplication()
 {
-    printf("Mode:3 -> Scalar_Multiplication \n\n");
+    printf("\nMode:3 -> Scalar_Multiplication \n\n");
     printf("\nPlease set the row of the matrix = ");
     scanf("%d", &row);
     if (row < 1)
