@@ -1,29 +1,51 @@
 //  Date: 2021/7/22     From: Eplankton
 
 #include <stdio.h>
-void matrixInput();
+void matrixInput(int *);
 int row = 0, column = 0;
 
 int main()
 {
-    printf("\nPlease set the row of your matrix = ");
+    printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
     if (row < 1)
     {
-        printf("\nError! Please set the row of your matrix again= ");
+        printf("\nError! Please set the row of the first matrix again= ");
         scanf("%d", &row);
     }
-    printf("\nPlease set the column of your matrix = ");
+    printf("\nPlease set the column of the first matrix = ");
     scanf("%d", &column);
     if (column < 1)
     {
-        printf("\nError! Please set the column of your matrix again = ");
+        printf("\nError! Please set the column of the first matrix again = ");
         scanf("%d", &column);
     }
-    matrixInput();
+    int fst[row][column];
+    int *p = &fst[0][0];
+    matrixInput(p);
+
+    getchar();
+
+    printf("\nPlease set the row of the second matrix = ");
+    scanf("%d", &row);
+    if (row < 1)
+    {
+        printf("\nError! Please set the row of the second matrix again= ");
+        scanf("%d", &row);
+    }
+    printf("\nPlease set the column of the second matrix = ");
+    scanf("%d", &column);
+    if (column < 1)
+    {
+        printf("\nError! Please set the column of the second matrix again = ");
+        scanf("%d", &column);
+    }
+    int sec[row][column];
+    int *q = &sec[0][0];
+    matrixInput(q);
 }
 
-void matrixInput()
+void matrixInput(int *r)
 {
     char matrixName;
     getchar();
@@ -50,6 +72,8 @@ void matrixInput()
         {
             printf("\nThe row(%d)column(%d) = ", i + 1, j + 1);
             scanf("%d", &a[i][j]);
+            *r = a[i][j];
+            r = r + 1;
             printf("\n");
 
             int m = 0, n = 0;
@@ -67,7 +91,7 @@ void matrixInput()
         printf("\n");
     }
 
-    printf("\nYour matrix %c< %d, %d > should be  like this : \n\n", matrixName, row, column);
+    printf("\nMatrix %c< %d, %d > should be like this : \n\n", matrixName, row, column);
 
     for (i = 0; i < row; i++)
     {
