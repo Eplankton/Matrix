@@ -16,17 +16,17 @@ int main()
     for (; key > 0;)
     {
         printf("\n\n");
-        printf("                           ############################\n");
-        printf("                           #       @ Matrix           #\n");
-        printf("                           #                          #\n");
-        printf("                           #         A + B        :1  #\n");
-        printf("                           #         A - B        :2  #\n");
-        printf("                           #         a * M        :3  #\n");
-        printf("                           #         A x B        :4  #\n");
-        printf("                           #         Det(A)       :5  #\n");
-        printf("                           #         Exit         :0  #\n");
-        printf("                           #                          #\n");
-        printf("                           ############################\n");
+        printf("                          #############################\n");
+        printf("                                   @ Matrix            \n");
+        printf("                                                       \n");
+        printf("                                     A + B         :1  \n");
+        printf("                                     A - B         :2  \n");
+        printf("                                     a * M         :3  \n");
+        printf("                                     A x B         :4  \n");
+        printf("                                     Det(A)        :5  \n");
+        printf("                                     Exit          :0  \n");
+        printf("                                                       \n");
+        printf("                          ############################\n");
         printf("                           Please enter : ");
         scanf("%d", &key);
 
@@ -101,9 +101,9 @@ void matrixInput(int *r)
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d ", a[i][j]);
+                printf(" %d\t ", a[i][j]);
             else
-                printf("[ %d ", a[i][j]);
+                printf("[ %d\t ", a[i][j]);
         }
         printf("]\n");
     }
@@ -111,6 +111,7 @@ void matrixInput(int *r)
 
 void matrixAddition()
 {
+    printf("Mode:1 -> Addition \n\n");
     printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
     if (row < 1)
@@ -131,7 +132,7 @@ void matrixAddition()
 
     getchar();
 
-    printf("\nPlease set the row of the second matrix = ");
+    printf("\n\nPlease set the row of the second matrix = ");
     scanf("%d", &row);
     if (row < 1)
     {
@@ -164,9 +165,9 @@ void matrixAddition()
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d ", result[i][j]);
+                printf(" %d\t ", result[i][j]);
             else
-                printf("[ %d ", result[i][j]);
+                printf("[ %d\t ", result[i][j]);
         }
         printf("]\n");
     }
@@ -174,6 +175,7 @@ void matrixAddition()
 
 void matrixSubtraction()
 {
+    printf("Mode:2 -> Subtraction \n\n");
     printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
     if (row < 1)
@@ -194,7 +196,7 @@ void matrixSubtraction()
 
     getchar();
 
-    printf("\nPlease set the row of the second matrix = ");
+    printf("\n\nPlease set the row of the second matrix = ");
     scanf("%d", &row);
     if (row < 1)
     {
@@ -227,9 +229,9 @@ void matrixSubtraction()
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d ", result[i][j]);
+                printf(" %d\t ", result[i][j]);
             else
-                printf("[ %d ", result[i][j]);
+                printf("[ %d\t ", result[i][j]);
         }
         printf("]\n");
     }
@@ -237,6 +239,7 @@ void matrixSubtraction()
 
 void scalarMultiplication()
 {
+    printf("Mode:3 -> Scalar_Multiplication \n\n");
     printf("\nPlease set the row of the matrix = ");
     scanf("%d", &row);
     if (row < 1)
@@ -256,7 +259,7 @@ void scalarMultiplication()
     int *p = &fst[0][0];
     matrixInput(p);
 
-    printf("\nPlease set the scalar = ");
+    printf("\n\nPlease set the scalar = ");
     scanf("%d", &u);
 
     int result[row][column];
@@ -274,9 +277,9 @@ void scalarMultiplication()
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d ", result[i][j]);
+                printf(" %d\t ", result[i][j]);
             else
-                printf("[ %d ", result[i][j]);
+                printf("[ %d\t ", result[i][j]);
         }
         printf("]\n");
     }
