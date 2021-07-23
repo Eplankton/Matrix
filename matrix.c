@@ -183,7 +183,7 @@ void matrixAddition()
         }
     }
 
-    printf("\nThe result is : \n\n");
+    printf("\nThe result of 'A + B' is : \n\n");
 
     for (i = 0; i < row; i++)
     {
@@ -257,7 +257,7 @@ void matrixSubtraction()
         }
     }
 
-    printf("\nThe result is : \n\n");
+    printf("\nThe result of 'A - B' is : \n\n");
 
     for (i = 0; i < row; i++)
     {
@@ -311,7 +311,7 @@ void scalarMultiplication()
         }
     }
 
-    printf("\nThe result is : \n\n");
+    printf("\nThe result of 'a * M' is : \n\n");
 
     for (i = 0; i < row; i++)
     {
@@ -351,6 +351,7 @@ void matrixMultiplication()
 
     float fst[row][column];
     float *p = &fst[0][0];
+    
     matrixInput(p);
 
     getchar();
@@ -367,69 +368,16 @@ void matrixMultiplication()
     }
 
     float sec[temp][column];
-
-    char matrixName;
-    getchar();
-    printf("\n\nSet the matrix name as :  ");
-    scanf("%c", &matrixName);
-    printf("\n");
-    printf("\nYour matrix :  %c < %d, %d > \n\n", matrixName, temp, column);
-
-    int m = 0, n = 0;
-
-    for (i = 0; i < temp; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            sec[i][j] = 0;
-        }
-    }
-
-    for (m = 0; m < temp; m++)
-    {
-        for (n = 0; n < column; n++)
-        {
-            printf(" %g ", sec[m][n]);
-        }
-        printf("\n");
-    }
-
-    for (i = 0; i < temp; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            printf("\nThe row(%d)column(%d) = ", i + 1, j + 1);
-            scanf("%g", &sec[i][j]);
-            printf("\n");
-
-            for (m = 0; m < temp; m++)
-            {
-                for (n = 0; n < column; n++)
-                {
-                    printf(" %g ", sec[m][n]);
-                }
-                printf("\n");
-            }
-        }
-        printf("\n");
-    }
-
-    printf("\nMatrix %c < %d, %d > should be like this : \n\n", matrixName, temp, column);
-
-    for (i = 0; i < temp; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            if (j > 0)
-                printf(" %g ", sec[i][j]);
-            else
-                printf("[ %g ", sec[i][j]);
-        }
-        printf("]\n");
-    }
-
     float result[row][column];
+    float *q = &sec[0][0];
+    int rary = 0;
+    rary = row;
+    row = temp;
+
+    matrixInput(q);
+
     int c = 0;
+    row = rary;
 
     for (i = 0; i < row; i++)
     {
@@ -442,7 +390,7 @@ void matrixMultiplication()
         }
     }
 
-    printf("\nThe result is : \n\n");
+    printf("\nThe result of 'A x B' is : \n\n");
 
     for (i = 0; i < row; i++)
     {
@@ -492,7 +440,7 @@ void matrixTransposition()
         }
     }
 
-    printf("\nThe result is : \n\n");
+    printf("\nThe result of 'A ^ T' is : \n\n");
 
     for (j = 0; j < column; j++)
     {
