@@ -1,17 +1,15 @@
-//  Date: 2021/7/22     From: Eplankton
+// Date: 2021/7/23  From: Eplankton
 
-#include <stdio.h>
-void matrixInput(int *);
-void matrixAddition();
-void matrixSubtraction();
-void scalarMultiplication();
+#include <stdio.h> 
+void matrixInput(float *);void matrixAddition();
+void matrixSubtraction();void scalarMultiplication();
 
 int row = 0, column = 0;
 int i = 0, j = 0;
 
 int main()
 {
-    int key = 1; //User Interface
+    int key = 1; // User Interface
 
     for (; key > 0;)
     {
@@ -44,12 +42,12 @@ int main()
         case 0:
             break;
         }
-    }
+    }            //
 
     return 0;
 }
 
-void matrixInput(int *r)
+void matrixInput(float *r)
 {
     char matrixName;
     getchar();
@@ -57,9 +55,10 @@ void matrixInput(int *r)
     scanf("%c", &matrixName);
     printf("\n");
 
-    printf("\nYour matrix should be :  %c < %d, %d > \n", matrixName, row, column);
+    printf("\nYour matrix :  %c < %d, %d > \n\n", matrixName, row, column);
 
-    int a[row][column];
+    float a[row][column];
+    int m = 0, n = 0;
 
     for (i = 0; i < row; i++)
     {
@@ -69,28 +68,34 @@ void matrixInput(int *r)
         }
     }
 
+    for (m = 0; m < row; m++)
+    {
+        for (n = 0; n < column; n++)
+        {
+            printf(" %g ", a[m][n]);
+        }
+        printf("\n");
+    }
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
         {
             printf("\nThe row(%d)column(%d) = ", i + 1, j + 1);
-            scanf("%d", &a[i][j]);
+            scanf("%g", &a[i][j]);
             *r = a[i][j];
             r = r + 1;
             printf("\n");
-
-            int m = 0, n = 0;
 
             for (m = 0; m < row; m++)
             {
                 for (n = 0; n < column; n++)
                 {
-                    printf(" %d ", a[m][n]);
+                    printf(" %g ", a[m][n]);
                 }
                 printf("\n");
             }
         }
-
         printf("\n");
     }
 
@@ -101,9 +106,9 @@ void matrixInput(int *r)
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d\t ", a[i][j]);
+                printf(" %g ", a[i][j]);
             else
-                printf("[ %d\t ", a[i][j]);
+                printf("[ %g ", a[i][j]);
         }
         printf("]\n");
     }
@@ -126,8 +131,8 @@ void matrixAddition()
         printf("\nError! Please set the column of the first matrix again = ");
         scanf("%d", &column);
     }
-    int fst[row][column];
-    int *p = &fst[0][0];
+    float fst[row][column];
+    float *p = &fst[0][0];
     matrixInput(p);
 
     getchar();
@@ -146,11 +151,11 @@ void matrixAddition()
         printf("\nError! Please set the column of the second matrix again = ");
         scanf("%d", &column);
     }
-    int sec[row][column];
-    int *q = &sec[0][0];
+    float sec[row][column];
+    float *q = &sec[0][0];
     matrixInput(q);
 
-    int result[row][column];
+    float result[row][column];
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -159,15 +164,15 @@ void matrixAddition()
         }
     }
 
-    printf("\nThe result is : \n");
+    printf("\nThe result is : \n\n");
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d\t ", result[i][j]);
+                printf(" %g ", result[i][j]);
             else
-                printf("[ %d\t ", result[i][j]);
+                printf("[ %g ", result[i][j]);
         }
         printf("]\n");
     }
@@ -190,8 +195,8 @@ void matrixSubtraction()
         printf("\nError! Please set the column of the first matrix again = ");
         scanf("%d", &column);
     }
-    int fst[row][column];
-    int *p = &fst[0][0];
+    float fst[row][column];
+    float *p = &fst[0][0];
     matrixInput(p);
 
     getchar();
@@ -210,11 +215,11 @@ void matrixSubtraction()
         printf("\nError! Please set the column of the second matrix again = ");
         scanf("%d", &column);
     }
-    int sec[row][column];
-    int *q = &sec[0][0];
+    float sec[row][column];
+    float *q = &sec[0][0];
     matrixInput(q);
 
-    int result[row][column];
+    float result[row][column];
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -223,15 +228,15 @@ void matrixSubtraction()
         }
     }
 
-    printf("\nThe result is : \n");
+    printf("\nThe result is : \n\n");
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d\t ", result[i][j]);
+                printf(" %g ", result[i][j]);
             else
-                printf("[ %d\t ", result[i][j]);
+                printf("[ %g ", result[i][j]);
         }
         printf("]\n");
     }
@@ -239,7 +244,7 @@ void matrixSubtraction()
 
 void scalarMultiplication()
 {
-    printf("\nMode:3 -> Scalar_Multiplication \n\n");
+    printf("\nMode:3 -> Scalar Multiplication \n\n");
     printf("\nPlease set the row of the matrix = ");
     scanf("%d", &row);
     if (row < 1)
@@ -254,15 +259,15 @@ void scalarMultiplication()
         printf("\nError! Please set the column of the matrix again = ");
         scanf("%d", &column);
     }
-    int fst[row][column];
-    int u = 0;
-    int *p = &fst[0][0];
+    float fst[row][column];
+    float u = 0;
+    float *p = &fst[0][0];
     matrixInput(p);
 
     printf("\n\nPlease set the scalar = ");
-    scanf("%d", &u);
+    scanf("%g", &u);
 
-    int result[row][column];
+    float result[row][column];
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -271,15 +276,15 @@ void scalarMultiplication()
         }
     }
 
-    printf("\nThe result is : \n");
+    printf("\nThe result is : \n\n");
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
         {
             if (j > 0)
-                printf(" %d\t ", result[i][j]);
+                printf(" %g ", result[i][j]);
             else
-                printf("[ %d\t ", result[i][j]);
+                printf("[ %g ", result[i][j]);
         }
         printf("]\n");
     }
