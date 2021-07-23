@@ -5,9 +5,10 @@ void matrixInput(float *);
 void matrixAddition();
 void matrixSubtraction();
 void scalarMultiplication();
+void matrixMultiplication();
 void matrixTransposition();
 
-int row = 0, column = 0;
+int row = 0, column = 0, temp = 0;
 int i = 0, j = 0;
 
 int main()
@@ -42,6 +43,9 @@ int main()
             break;
         case 3:
             scalarMultiplication();
+            break;
+        case 4:
+            matrixMultiplication();
             break;
         case 6:
             matrixTransposition();
@@ -304,6 +308,137 @@ void scalarMultiplication()
         for (j = 0; j < column; j++)
         {
             result[i][j] = u * fst[i][j];
+        }
+    }
+
+    printf("\nThe result is : \n\n");
+
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < column; j++)
+        {
+            if (j > 0)
+                printf(" %g ", result[i][j]);
+            else
+                printf("[ %g ", result[i][j]);
+        }
+        printf("]\n");
+    }
+}
+
+void matrixMultiplication()
+{
+    printf("\nMode:4 -> Multiplication \n\n");
+    printf("\nPlease set the row of the first matrix = ");
+    scanf("%d", &row);
+
+    if (row < 1)
+    {
+        printf("\nError! Please set the row of the first matrix again= ");
+        scanf("%d", &row);
+    }
+
+    printf("\nPlease set the column of the first matrix = ");
+    scanf("%d", &column);
+    temp = column;
+
+    if (column < 1)
+    {
+        printf("\nError! Please set the column of the first matrix again = ");
+        scanf("%d", &column);
+        temp = column;
+    }
+
+    float fst[row][column];
+    float *p = &fst[0][0];
+    matrixInput(p);
+
+    getchar();
+
+    printf("\n\nThe row of the second matrix has been set as = %d \n", column);
+
+    printf("\nPlease set the column of the second matrix = ");
+    scanf("%d", &column);
+
+    if (column < 1)
+    {
+        printf("\nError! Please set the column of the second matrix again = ");
+        scanf("%d", &column);
+    }
+
+    float sec[temp][column];
+
+    char matrixName;
+    getchar();
+    printf("\n\nSet the matrix name as :  ");
+    scanf("%c", &matrixName);
+    printf("\n");
+    printf("\nYour matrix :  %c < %d, %d > \n\n", matrixName, temp, column);
+
+    int m = 0, n = 0;
+
+    for (i = 0; i < temp; i++)
+    {
+        for (j = 0; j < column; j++)
+        {
+            sec[i][j] = 0;
+        }
+    }
+
+    for (m = 0; m < temp; m++)
+    {
+        for (n = 0; n < column; n++)
+        {
+            printf(" %g ", sec[m][n]);
+        }
+        printf("\n");
+    }
+
+    for (i = 0; i < temp; i++)
+    {
+        for (j = 0; j < column; j++)
+        {
+            printf("\nThe row(%d)column(%d) = ", i + 1, j + 1);
+            scanf("%g", &sec[i][j]);
+            printf("\n");
+
+            for (m = 0; m < temp; m++)
+            {
+                for (n = 0; n < column; n++)
+                {
+                    printf(" %g ", sec[m][n]);
+                }
+                printf("\n");
+            }
+        }
+        printf("\n");
+    }
+
+    printf("\nMatrix %c < %d, %d > should be like this : \n\n", matrixName, temp, column);
+
+    for (i = 0; i < temp; i++)
+    {
+        for (j = 0; j < column; j++)
+        {
+            if (j > 0)
+                printf(" %g ", sec[i][j]);
+            else
+                printf("[ %g ", sec[i][j]);
+        }
+        printf("]\n");
+    }
+
+    float result[row][column];
+    int c = 0;
+
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < column; j++)
+        {
+            for (c = 0; c < temp; c++)
+            {
+                result[i][j] += (fst[i][c] * sec[c][j]);
+            }
         }
     }
 
