@@ -1,8 +1,10 @@
-// Date: 2021/7/23  From: Eplankton
+// Date: 2021/7/22  From: Eplankton
 
-#include <stdio.h> 
-void matrixInput(float *);void matrixAddition();
-void matrixSubtraction();void scalarMultiplication();
+#include <stdio.h>
+void matrixInput(float *);
+void matrixAddition();
+void matrixSubtraction();
+void scalarMultiplication();
 
 int row = 0, column = 0;
 int i = 0, j = 0;
@@ -42,7 +44,7 @@ int main()
         case 0:
             break;
         }
-    }            //
+    }
 
     return 0;
 }
@@ -119,18 +121,22 @@ void matrixAddition()
     printf("\nMode:1 -> Addition \n\n");
     printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
+
     if (row < 1)
     {
         printf("\nError! Please set the row of the first matrix again= ");
         scanf("%d", &row);
     }
+
     printf("\nPlease set the column of the first matrix = ");
     scanf("%d", &column);
+
     if (column < 1)
     {
         printf("\nError! Please set the column of the first matrix again = ");
         scanf("%d", &column);
     }
+
     float fst[row][column];
     float *p = &fst[0][0];
     matrixInput(p);
@@ -139,6 +145,7 @@ void matrixAddition()
 
     printf("\n\nPlease set the row of the second matrix = ");
     scanf("%d", &row);
+
     if (row < 1)
     {
         printf("\nError! Please set the row of the second matrix again= ");
@@ -146,16 +153,19 @@ void matrixAddition()
     }
     printf("\nPlease set the column of the second matrix = ");
     scanf("%d", &column);
+
     if (column < 1)
     {
         printf("\nError! Please set the column of the second matrix again = ");
         scanf("%d", &column);
     }
+
     float sec[row][column];
     float *q = &sec[0][0];
     matrixInput(q);
 
     float result[row][column];
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -165,6 +175,7 @@ void matrixAddition()
     }
 
     printf("\nThe result is : \n\n");
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -183,18 +194,22 @@ void matrixSubtraction()
     printf("\nMode:2 -> Subtraction \n\n");
     printf("\nPlease set the row of the first matrix = ");
     scanf("%d", &row);
+
     if (row < 1)
     {
         printf("\nError! Please set the row of the first matrix again= ");
         scanf("%d", &row);
     }
+
     printf("\nPlease set the column of the first matrix = ");
     scanf("%d", &column);
+
     if (column < 1)
     {
         printf("\nError! Please set the column of the first matrix again = ");
         scanf("%d", &column);
     }
+
     float fst[row][column];
     float *p = &fst[0][0];
     matrixInput(p);
@@ -203,23 +218,28 @@ void matrixSubtraction()
 
     printf("\n\nPlease set the row of the second matrix = ");
     scanf("%d", &row);
+
     if (row < 1)
     {
         printf("\nError! Please set the row of the second matrix again= ");
         scanf("%d", &row);
     }
+
     printf("\nPlease set the column of the second matrix = ");
     scanf("%d", &column);
+
     if (column < 1)
     {
         printf("\nError! Please set the column of the second matrix again = ");
         scanf("%d", &column);
     }
+
     float sec[row][column];
     float *q = &sec[0][0];
     matrixInput(q);
 
     float result[row][column];
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -229,6 +249,7 @@ void matrixSubtraction()
     }
 
     printf("\nThe result is : \n\n");
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -247,18 +268,22 @@ void scalarMultiplication()
     printf("\nMode:3 -> Scalar Multiplication \n\n");
     printf("\nPlease set the row of the matrix = ");
     scanf("%d", &row);
+
     if (row < 1)
     {
         printf("\nError! Please set the row of the matrix again= ");
         scanf("%d", &row);
     }
+
     printf("\nPlease set the column of the matrix = ");
     scanf("%d", &column);
+
     if (column < 1)
     {
         printf("\nError! Please set the column of the matrix again = ");
         scanf("%d", &column);
     }
+
     float fst[row][column];
     float u = 0;
     float *p = &fst[0][0];
@@ -268,6 +293,7 @@ void scalarMultiplication()
     scanf("%g", &u);
 
     float result[row][column];
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -277,6 +303,7 @@ void scalarMultiplication()
     }
 
     printf("\nThe result is : \n\n");
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
