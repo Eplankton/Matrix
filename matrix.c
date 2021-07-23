@@ -5,6 +5,7 @@ void matrixInput(float *);
 void matrixAddition();
 void matrixSubtraction();
 void scalarMultiplication();
+void matrixTransposition();
 
 int row = 0, column = 0;
 int i = 0, j = 0;
@@ -24,6 +25,7 @@ int main()
         printf("                                     a * M         :3  \n");
         printf("                                     A x B         :4  \n");
         printf("                                     Det(A)        :5  \n");
+        printf("                                     A ^ T         :6  \n");
         printf("                                     Exit          :0  \n");
         printf("                                                       \n");
         printf("                          #############################\n");
@@ -40,6 +42,9 @@ int main()
             break;
         case 3:
             scalarMultiplication();
+            break;
+        case 6:
+            matrixTransposition();
             break;
         case 0:
             break;
@@ -312,6 +317,56 @@ void scalarMultiplication()
                 printf(" %g ", result[i][j]);
             else
                 printf("[ %g ", result[i][j]);
+        }
+        printf("]\n");
+    }
+}
+
+void matrixTransposition()
+{
+    printf("\nMode:6 -> matrixTransposition \n\n");
+    printf("\nPlease set the row of the matrix = ");
+    scanf("%d", &row);
+
+    if (row < 1)
+    {
+        printf("\nError! Please set the row of the matrix again= ");
+        scanf("%d", &row);
+    }
+
+    printf("\nPlease set the column of the matrix = ");
+    scanf("%d", &column);
+
+    if (column < 1)
+    {
+        printf("\nError! Please set the column of the matrix again = ");
+        scanf("%d", &column);
+    }
+
+    float fst[row][column];
+    float *p = &fst[0][0];
+    matrixInput(p);
+
+    float result[column][row];
+
+    for (i = 0; i <= row; i++)
+    {
+        for (j = 0; j <= column; j++)
+        {
+            result[i][j] = fst[j][i];
+        }
+    }
+
+    printf("\nThe result is : \n\n");
+
+    for (j = 0; j < column; j++)
+    {
+        for (i = 0; i < row; i++)
+        {
+            if (i > 0)
+                printf(" %g ", result[j][i]);
+            else
+                printf("[ %g ", result[j][i]);
         }
         printf("]\n");
     }
