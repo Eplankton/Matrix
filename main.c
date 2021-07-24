@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "matrix_function.hh"
+#include "matrix_function.h"
 
 int main()
 {
