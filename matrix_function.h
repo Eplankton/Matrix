@@ -3,12 +3,12 @@ void matrixAddition();
 void matrixSubtraction();
 void scalarMultiplication();
 void matrixMultiplication();
-void matrixTransposition();
+void matrixTransposition(); //Function declaration
 
 int row = 0, column = 0, temp = 0;
 int i = 0, j = 0;
 
-void matrixInput(float *r)
+void matrixInput(float *r) //Function to input matrix
 {
     char matrixName;
     getchar();
@@ -75,7 +75,7 @@ void matrixInput(float *r)
     }
 }
 
-void matrixAddition()
+void matrixAddition() //Function to add two matrix together .
 {
     printf("\nMode:1 -> Addition \n\n");
     printf("\nPlease set the row of the first matrix = ");
@@ -148,7 +148,7 @@ void matrixAddition()
     }
 }
 
-void matrixSubtraction()
+void matrixSubtraction() //Similar to matrixAddition()
 {
     printf("\nMode:2 -> Subtraction \n\n");
     printf("\nPlease set the row of the first matrix = ");
@@ -222,7 +222,7 @@ void matrixSubtraction()
     }
 }
 
-void scalarMultiplication()
+void scalarMultiplication() //Multiply a scalar on a matrix .
 {
     printf("\nMode:3 -> Scalar Multiplication \n\n");
     printf("\nPlease set the row of the matrix = ");
@@ -276,7 +276,7 @@ void scalarMultiplication()
     }
 }
 
-void matrixMultiplication()
+void matrixMultiplication() //Multiply two matrix together .
 {
     printf("\nMode:4 -> Multiplication \n\n");
     printf("\nPlease set the row of the first matrix = ");
@@ -301,7 +301,7 @@ void matrixMultiplication()
 
     float fst[row][column];
     float *p = &fst[0][0];
-    
+
     matrixInput(p);
 
     getchar();
@@ -320,14 +320,15 @@ void matrixMultiplication()
     float sec[temp][column];
     float result[row][column];
     float *q = &sec[0][0];
-    int rary = 0;
-    rary = row;
+
+    int prov = 0; //Use another value to transport 'row' .
+    prov = row;
     row = temp;
 
     matrixInput(q);
 
     int c = 0;
-    row = rary;
+    row = prov;
 
     for (i = 0; i < row; i++)
     {
@@ -355,7 +356,7 @@ void matrixMultiplication()
     }
 }
 
-void matrixTransposition()
+void matrixTransposition() //Transposition of matrix
 {
     printf("\nMode:6 -> matrixTransposition \n\n");
     printf("\nPlease set the row of the matrix = ");
