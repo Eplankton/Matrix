@@ -321,7 +321,7 @@ void matrixMultiplication() //Multiply two matrix together .
     float result[row][column];
     float *q = &sec[0][0];
 
-    int prov = 0; //Use another value to transport 'row' .
+    int prov = 0; //Use another variable to transport 'row' .
     prov = row;
     row = temp;
 
