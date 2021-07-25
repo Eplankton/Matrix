@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 #include "matrix_function.h"
 
 int main()
 {
     int key = 1; // User Interface
 
-    for (; key > 0;)
+    while (key > 0)
     {
         printf("\n\n");
         printf("                          #############################\n");
