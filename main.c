@@ -3,7 +3,7 @@
 #include "matrix_function.h"
 
 int main()
-{
+{ 
     int key = 1; // User Interface
 
     while (key > 0)
@@ -37,6 +37,9 @@ int main()
             break;
         case 4:
             matrixMultiplication();
+            break;
+        case 5:
+            matrixDeterminant();
             break;
         case 6:
             matrixTransposition();
