@@ -15,7 +15,7 @@ void matrixInput(float *r) //Function to input matrix
     char matrixName[30];
     getchar();
     printf("\n\nSet the matrix name (No space) : ");
-    scanf("%s", &matrixName);
+    scanf("%s", matrixName);
     printf("\n");
 
     printf("\nYour matrix : %s < %d, %d > \n\n", matrixName, row, column);
