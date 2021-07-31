@@ -13,11 +13,11 @@ int i = 0, j = 0;
 void matrixInput(float *r) //Function to input matrix
 {
     char matrixName[30];
+
     getchar();
     printf("\n\nSet the matrix name (No space) : ");
     scanf("%s", matrixName);
     printf("\n");
-
     printf("\nYour matrix : %s < %d, %d > \n\n", matrixName, row, column);
 
     float a[row][column];
@@ -68,7 +68,7 @@ void matrixInput(float *r) //Function to input matrix
     {
         for (j = 0; j < column; j++)
         {
-            if (j > 0)
+            if (j != 0)
                 printf(" %g ", a[i][j]);
             else
                 printf("[ %g ", a[i][j]);
@@ -101,7 +101,6 @@ void matrixAddition() //Function to add two matrix together
     float former[row][column];
     float *p = &former[0][0];
     matrixInput(p);
-
     getchar();
 
     printf("\n\nPlease set the row of the latter matrix = ");
@@ -141,7 +140,7 @@ void matrixAddition() //Function to add two matrix together
     {
         for (j = 0; j < column; j++)
         {
-            if (j > 0)
+            if (j != 0)
                 printf(" %g ", result[i][j]);
             else
                 printf("[ %g ", result[i][j]);
@@ -174,7 +173,6 @@ void matrixSubtraction() //Similar to matrixAddition()
     float former[row][column];
     float *p = &former[0][0];
     matrixInput(p);
-
     getchar();
 
     printf("\n\nPlease set the row of the latter matrix = ");
@@ -215,7 +213,7 @@ void matrixSubtraction() //Similar to matrixAddition()
     {
         for (j = 0; j < column; j++)
         {
-            if (j > 0)
+            if (j != 0)
                 printf(" %g ", result[i][j]);
             else
                 printf("[ %g ", result[i][j]);
@@ -248,6 +246,7 @@ void scalarMultiplication() //Multiply a scalar on a matrix
     float former[row][column];
     float u = 0;
     float *p = &former[0][0];
+
     matrixInput(p);
 
     printf("\n\nPlease set the scalar = ");
@@ -269,7 +268,7 @@ void scalarMultiplication() //Multiply a scalar on a matrix
     {
         for (j = 0; j < column; j++)
         {
-            if (j > 0)
+            if (j != 0)
                 printf(" %g ", result[i][j]);
             else
                 printf("[ %g ", result[i][j]);
@@ -305,11 +304,9 @@ void matrixMultiplication() //Multiply two matrix together
     float *p = &former[0][0];
 
     matrixInput(p);
-
     getchar();
-
+    
     printf("\n\nThe row of the latter matrix has been set as = %d \n", column);
-
     printf("\nPlease set the column of the latter matrix = ");
     scanf("%d", &column);
 
@@ -348,7 +345,7 @@ void matrixMultiplication() //Multiply two matrix together
     {
         for (j = 0; j < column; j++)
         {
-            if (j > 0)
+            if (j != 0)
                 printf(" %g ", result[i][j]);
             else
                 printf("[ %g ", result[i][j]);
@@ -371,11 +368,10 @@ void matrixDeterminant()//Determinant
 
     column = row;
 
+    float result = 0;
     float former[row][column];
     float *p = &former[0][0];
     matrixInput(p);
-
-    float result = 0;
 
     if (row == 2)
     {
@@ -414,7 +410,6 @@ void matrixTransposition() //Transposition of matrix
     float former[row][column];
     float *p = &former[0][0];
     matrixInput(p);
-
     float result[column][row];
 
     for (i = 0; i <= row; i++)
@@ -431,7 +426,7 @@ void matrixTransposition() //Transposition of matrix
     {
         for (i = 0; i < row; i++)
         {
-            if (i > 0)
+            if (i != 0)
                 printf(" %g ", result[j][i]);
             else
                 printf("[ %g ", result[j][i]);
