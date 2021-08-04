@@ -21,7 +21,7 @@ int main()
         printf("                                     Exit          :0  \n");
         printf("                                                       \n");
         printf("                          #############################\n");
-        printf("                           Please enter : ");
+        printf("                          Please enter : ");
         scanf("%d", &key);
 
         switch (key)
