@@ -13,8 +13,8 @@ int i = 0, j = 0;
 void matrixInput(float *r) //Function to input matrix
 {
     char matrixName[30];
-
     getchar();
+    
     printf("\n\nSet the matrix name (No space) : ");
     scanf("%s", matrixName);
     printf("\n");
@@ -100,6 +100,7 @@ void matrixAddition() //Function to add two matrix together
 
     float former[row][column];
     float *p = &former[0][0];
+    
     matrixInput(p);
     getchar();
 
@@ -122,10 +123,12 @@ void matrixAddition() //Function to add two matrix together
 
     float latter[row][column];
     float *q = &latter[0][0];
+    
     matrixInput(q);
-
+    getchar();
+    
     float result[row][column];
-
+    
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -172,6 +175,7 @@ void matrixSubtraction() //Similar to matrixAddition()
 
     float former[row][column];
     float *p = &former[0][0];
+    
     matrixInput(p);
     getchar();
 
@@ -195,7 +199,9 @@ void matrixSubtraction() //Similar to matrixAddition()
 
     float latter[row][column];
     float *q = &latter[0][0];
+    
     matrixInput(q);
+    getchar();
 
     float result[row][column];
 
@@ -248,6 +254,7 @@ void scalarMultiplication() //Multiply a scalar on a matrix
     float *p = &former[0][0];
 
     matrixInput(p);
+    getchar();
 
     printf("\n\nPlease set the scalar = ");
     scanf("%g", &u);
@@ -321,9 +328,10 @@ void matrixMultiplication() //Multiply two matrix together
     float *q = &latter[0][0];
 
     prov = row;
-    row = temp;
+    row = temp;     //Reverse the value
 
     matrixInput(q);
+    getchar();
 
     int c = 0;
     row = prov;
@@ -366,12 +374,14 @@ void matrixDeterminant()//Determinant
         scanf("%d", &row);
     }
 
-    column = row;
+    column = row;       //Reverse the value
 
     float result = 0;
     float former[row][column];
     float *p = &former[0][0];
+    
     matrixInput(p);
+    getchar();
 
     if (row == 2)
     {
@@ -409,7 +419,10 @@ void matrixTransposition() //Transposition of matrix
 
     float former[row][column];
     float *p = &former[0][0];
+    
     matrixInput(p);
+    getchar();
+    
     float result[column][row];
 
     for (i = 0; i <= row; i++)
