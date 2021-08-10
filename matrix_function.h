@@ -113,6 +113,7 @@ void matrixAddition() //Function to add two matrix together
         printf("\nError! Please set the row of the latter matrix again= ");
         scanf("%d", &row);
     }
+    
     printf("\nPlease set the column of the latter matrix = ");
     scanf("%d", &column);
 
