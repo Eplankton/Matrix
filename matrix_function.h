@@ -7,16 +7,16 @@ void matrixDeterminant();
 void matrixTransposition(); //Function declaration
 
 int row = 0, column = 0;
-int prov = 0, temp = 0; //Use another value to transport 'row'
-int i = 0, j = 0;
+int prov = 0, temp = 0;
+int i = 0, j = 0;//Global variables
 
 void matrixInput(float *r) //Function to input matrix
 {
-    char matrixName[30];
+    char matrixName[50];
     getchar();
-    
+
     printf("\n\nSet the matrix name (No space) : ");
-    scanf("%s", matrixName);
+    scanf("%s", matrixName); //'matrixName' is a array variable, don't need a '&'.
     printf("\n");
     printf("\nYour matrix : %s < %d, %d > \n\n", matrixName, row, column);
 
@@ -46,8 +46,10 @@ void matrixInput(float *r) //Function to input matrix
         {
             printf("\nThe row(%d)column(%d) = ", i + 1, j + 1);
             scanf("%g", &a[i][j]);
-            *r = a[i][j];
+
+            *r = a[i][j]; //Output the matrix
             r = r + 1;
+
             printf("\n");
 
             for (m = 0; m < row; m++)
@@ -100,7 +102,7 @@ void matrixAddition() //Function to add two matrix together
 
     float former[row][column];
     float *p = &former[0][0];
-    
+
     matrixInput(p);
     getchar();
 
@@ -123,12 +125,12 @@ void matrixAddition() //Function to add two matrix together
 
     float latter[row][column];
     float *q = &latter[0][0];
-    
+
     matrixInput(q);
     getchar();
-    
+
     float result[row][column];
-    
+
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
@@ -175,7 +177,7 @@ void matrixSubtraction() //Similar to matrixAddition()
 
     float former[row][column];
     float *p = &former[0][0];
-    
+
     matrixInput(p);
     getchar();
 
@@ -199,7 +201,7 @@ void matrixSubtraction() //Similar to matrixAddition()
 
     float latter[row][column];
     float *q = &latter[0][0];
-    
+
     matrixInput(q);
     getchar();
 
@@ -312,7 +314,7 @@ void matrixMultiplication() //Multiply two matrix together
 
     matrixInput(p);
     getchar();
-    
+
     printf("\n\nThe row of the latter matrix has been set as = %d \n", column);
     printf("\nPlease set the column of the latter matrix = ");
     scanf("%d", &column);
@@ -328,7 +330,7 @@ void matrixMultiplication() //Multiply two matrix together
     float *q = &latter[0][0];
 
     prov = row;
-    row = temp;     //Reverse the value
+    row = temp; //Reverse the value
 
     matrixInput(q);
     getchar();
@@ -362,7 +364,7 @@ void matrixMultiplication() //Multiply two matrix together
     }
 }
 
-void matrixDeterminant()//Determinant
+void matrixDeterminant() //Determinant
 {
     printf("\nMode:5 -> matrixDeterminant\n\n");
     printf("\nPlease set the dimension of the determinant = ");
@@ -374,12 +376,12 @@ void matrixDeterminant()//Determinant
         scanf("%d", &row);
     }
 
-    column = row;       //Reverse the value
+    column = row; //Reverse the value
 
     float result = 0;
     float former[row][column];
     float *p = &former[0][0];
-    
+
     matrixInput(p);
     getchar();
 
@@ -419,10 +421,10 @@ void matrixTransposition() //Transposition of matrix
 
     float former[row][column];
     float *p = &former[0][0];
-    
+
     matrixInput(p);
     getchar();
-    
+
     float result[column][row];
 
     for (i = 0; i <= row; i++)
