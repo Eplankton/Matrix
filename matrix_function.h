@@ -47,8 +47,7 @@ void matrixInput(float *r) //Function to input matrix
             printf("\nThe row(%d)column(%d) = ", i + 1, j + 1);
             scanf("%g", &a[i][j]);
 
-            *r = a[i][j]; //Output the matrix
-            r = r + 1;
+            *r++ = a[i][j]; //Output the matrix
 
             printf("\n");
 
